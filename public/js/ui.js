@@ -74,8 +74,9 @@ const updateUI = async () => {
       eachElement(".profile-image", (e) => (e.src = user.picture));
       eachElement(".user-name", (e) => (e.innerText = user.name));
       eachElement(".user-email", (e) => (e.innerText = user.email));
-      eachElement(".user-emailVerified", (e) => (e.innerText = user.email_verified));
-      eachElement(".user-locale", (e) => (e.innerText = user.locale));
+      //get email verified and locale from user object ready to display
+      eachElement(".user-emailVerified", (e) => (e.innerText = "Email verified? " + user.email_verified));
+      eachElement(".user-locale", (e) => (e.innerText = "Your locale: " + user.locale));
       eachElement(".auth-invisible", (e) => e.classList.add("hidden"));
       eachElement(".auth-visible", (e) => e.classList.remove("hidden"));
     } else {
