@@ -1,8 +1,8 @@
-# Sample 01 - Login
+# Demo Application for Cruise0
 
-The purpose of this article is to demonstrate how simple it is to set up and use the new Single Page Application SDK, and authenticate a user in your application using Auth0's Universal Login Page.
+This is a proof-of-concept demo app for Cruise0, built off of the [NodeJS/Express SPA Quickstart App](https://auth0.com/docs/quickstart/spa/vanillajs).
 
-## Running the Sample Application
+## Running the Application
 
 The sample can be run locally, by cloning the repository to your machine and then following the steps below.
 
@@ -35,33 +35,34 @@ This version of the application uses an [Express](https://expressjs.com) server 
 $ npm run dev
 ```
 
-## Frequently Asked Questions
+## Requirements
 
-We are compiling a list of questions and answers regarding the new JavaScript SDK - if you're having issues running the sample applications, [check the FAQ](https://github.com/auth0/auth0-spa-js/blob/master/FAQ.md)!
+This app was designed to meet the following requirements (and meets them partially):
 
-## What is Auth0?
+### Show how Auth0 can support the Cruise0 app modernization on ReactJS (you are free to build the PoC single page application in your preferred language for demonstration purposes).
 
-Auth0 helps you to:
+✅ The Quickstart templates for Auth0 demonstrate many proof-of-concept approaches for different tech stacks. I built this one off the Vanilla JS template, but there are options for [React](https://auth0.com/docs/quickstart/spa/react) as well.
 
-- Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, among others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
-- Add authentication through more traditional **[username/password databases](https://docs.auth0.com/mysql-connection-tutorial)**.
-- Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
-- Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
-- Analytics of how, when and where users are logging in.
-- Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
+### Show how a new customer can sign up, and how an existing customer can sign in with email/password, and Google.        
 
-## Create a free Auth0 account
+✅ This app makes use of Auth0's [Social Identity Providers](https://auth0.com/docs/connections/social/) feature, using Auth0's default credentials for Google apps, set up via the [Auth0 Dashboard](https://auth0.com/docs/get-started/dashboard/set-up-social-connections
+)
 
-1. Go to [Auth0](https://auth0.com/signup) and click Sign Up.
-2. Use Google, GitHub or Microsoft Account to login.
+### Ensure that customers who login with username/password and Google, with the same email address, will be treated as the same user. Also known as Account Linking.
 
-## Issue Reporting
+✅ This app implements Account Linking via the [Account Linking Extension](https://auth0.com/docs/extensions/account-link-extension).
+)
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+### The application should display an error if the customer’s email address is not verified. 
+⚠️ This requirement was partially implemented. The customer's email address verification status is fetched from [the user object in the Auth0 Management API](https://auth0.com/docs/api/management/v2/#!/Users/get_users) and displayed in the dropdown after the user is logged in. However it just displays "true" or "false", not a proper user-friendly error message. To fully implement this requirement, you could use conditional logic to display the error message based on whether the user's email is verified. 
+
+### Use Auth0 features to customize the profile page so both the photo and country flag are displayed without prompting users to input directly. If the photo and country of the customer are known, make sure this information is passed back to the application and shown after the user authenticates.       
+
+⚠️ This requirement was partially implemented. The profile page displays the photo as well as the other user data stored, including location and country data, in JSON format. The location data was added using [Auth0 Rules](https://auth0.com/docs/rules/create-rules). However the profile page doesn't display the country flag. To fully implement this requirement, you could grab a library of country flags such as [FlagKit](https://github.com/madebybowtie/FlagKit) and match them to the country codes stored in the user data.  
 
 ## Author
 
-[Auth0](auth0.com)
+[Auth0](auth0.com), @hnotess 
 
 ## License
 
