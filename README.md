@@ -4,18 +4,7 @@ This is a proof-of-concept demo app for Cruise0, built off of the [NodeJS/Expres
 
 ## Running the Application
 
-The sample can be run locally, by cloning the repository to your machine and then following the steps below.
-
-### Specifying Auth0 Credentials
-
-To specify the application client ID and domain, make a copy of `auth_config.json.example` and rename it to `auth_config.json`. Then open it in a text editor and supply the values for your application:
-
-```json
-{
-  "domain": "hfn-authzero-project-demo.us.auth0.com",
-  "clientId": "KJ63CoIGFlqPe7h8uXSZnXeoVftCCDaY"
-}
-```
+The app can be run locally, by cloning the repository to your machine and then following the steps below. The Auth0 credentials in `auth_config.json` are included for convenience.
 
 ### Installation
 
@@ -34,6 +23,8 @@ This version of the application uses an [Express](https://expressjs.com) server 
 ```bash
 $ npm run dev
 ```
+
+Then navigate to localhost:3000 in your browser to use and interact with the sample app.
 
 ## Requirements
 
@@ -62,7 +53,7 @@ This app was designed to meet the following requirements (and meets them partial
 
 ## Author
 
-[Auth0](auth0.com), @hnotess 
+[Auth0](auth0.com), [@hnotess](https://github.com/hnotess)
 
 ## License
 
